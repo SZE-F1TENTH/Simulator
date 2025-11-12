@@ -1,68 +1,41 @@
-# `Important: This repo was deliberately not forked, as the container contains private packages and internal code we don't want to be exposed or publicly associated with an upstream repo.`
-
-The container contains a map of the track used at The IEEE INTELLIGENT VEHICLES SYMPOSIUM (IV 2025), called ieee2. 
-
 # F1TENTH gym environment ROS2 communication bridge
 This is a containerized ROS communication bridge for the F1TENTH gym environment that turns it into a simulation in ROS2.
 
 The installed ros2 in the container is a foxy version but as soon as car1 and car2 will be able to use humble, I will update the container as well.
-# Installation
 
 **Supported System:**
 
 - Windows 10, macOS, and Ubuntu
 
+## Prerequisites (Before Starting)
+- Install Docker Desktop (required to run containers)
+- Install Visual Studio Code (for attaching to the running simulation container)
+- (Optional) Install Git if you prefer cloning instead of ZIP download
 
-## Without an NVIDIA gpu:
+## Windows Quick Start (English / Magyar)
+| English | Magyar |
+|--------|--------|
+| 1. Download the repository: click the Code button (green) on GitHub, choose Download ZIP. | 1. Töltsd le a repót: kattints a Code (zöld) gombra GitHub-on, majd Download ZIP. |
+| 2. Extract the ZIP to your Desktop (you should get: Desktop/Simulator-main). | 2. Csomagold ki a ZIP-et az Asztalra (eredmény: Asztal/Simulator-main mappa). |
+| 3. Install Docker Desktop and start it (must be running, no errors). | 3. Telepítsd a Docker Desktopot és indítsd el (futnia kell hiba nélkül). |
+| 4. Install Visual Studio Code. | 4. Telepítsd a Visual Studio Code-ot. |
+| 5. Open Windows PowerShell or Command Prompt. | 5. Nyisd meg a Windows PowerShellt vagy a Parancssort (CMD). |
+| 6. Navigate into the project folder: cd .\\Desktop\\Simulator-main | 6. Lépj be a mappába: cd .\\Desktop\\Simulator-main |
+| 7. Start the containers: docker compose up (or docker-compose up). | 7. Indítsd a konténereket: docker compose up (vagy docker-compose up). |
+| 8. Wait until services finish starting (no new error spam). | 8. Várj, míg minden elindul (nincsenek új hibák). |
+| 9. Open browser: http://localhost:8080/vnc.html then click Connect (Ubuntu desktop should appear). | 9. Nyiss böngészőt: http://localhost:8080/vnc.html majd Connect (Ubuntu felület látszik). |
+| 10. In VS Code install the "Dev Containers" extension (formerly Remote - Containers) and optionally "Docker" extension. | 10. VS Code-ban telepítsd a "Dev Containers" (régen Remote - Containers) és opcionálisan a "Docker" kiegészítőt. |
+| 11. Press Ctrl+Shift+P → "Dev Containers: Attach to Running Container..." | 11. Ctrl+Shift+P → "Dev Containers: Attach to Running Container..." |
+| 12. Select the simulation container (the one WITHOUT 'novnc' in its name). | 12. Válaszd ki a szimulációs konténert (amelyik nevében NINCS 'novnc'). |
+| 13. In the attached VS Code window open a terminal (Terminal > New Terminal). | 13. A csatolt VS Code ablakban nyiss egy terminált (Terminal > New Terminal). |
+| 14. Source the workspace: source sim_ws/install/setup.bash | 14. Forrásold a workspace-et: source sim_ws/install/setup.bash |
+| 15. Launch simulation: ros2 launch f1tenth_gym_ros bringup_launch.py | 15. Indítsd a szimulációt: ros2 launch f1tenth_gym_ros bringup_launch.py |
+| 16. Open/refresh http://localhost:8080/vnc.html — you should now see the track and cars. | 16. Frissítsd / nyisd meg újra a http://localhost:8080/vnc.html oldalt — látnod kell a pályát és az autókat. |
+| 17. (Optional) Use RViz inside the container if needed. | 17. (Opcionális) Használd az RViz-et a konténerben ha szükséges. |
+| 18. To stop: press Ctrl+C in the terminal, then docker compose down (in host shell). | 18. Leállítás: terminálban Ctrl+C, majd hoston docker compose down. |
 
-**Install the following dependencies:**
-
-If your system does not support nvidia-docker2, noVNC will have to be used to forward the display.
-- Again you'll need **Docker**. Follow the instruction from above.
-- Additionally you'll need **docker-compose**. Follow the instruction [here](https://docs.docker.com/compose/install/) to install docker-compose.
-
-**Installing the simulation:**
-
-1. Clone this repo 
-2. Bringup the novnc container and the sim container with docker-compose:
-```bash
-docker-compose up
-#or 
-docker compose up
-``` 
-Ok if you didn't get any error messages and you see a ubuntus computer interface in novnc then congratulations, your container is running!
-
-Connecting to a Docker Container via Visual Studio Code (Simpler Method)
-Instead of running terminal commands manually like:
-
-docker exec -it f1tenth_gym_ros-sim-1 /bin/bash
-You can use Visual Studio Code (VS Code) to connect to the container and open a terminal inside it much more easily:
-
-Steps:
-Install Required Extension
-Open VS Code.
-Go to the Extensions panel (Ctrl+Shift+X).
-Search for and install the Dev Containers extension
-(previously called Remote - Containers).
-Attach to the Running Container
-Press F1 or Ctrl+Shift+P to open the command palette.
-Type:
-"Dev Containers: Attach to Running Container..."
-Select your container from the list (e.g., f1tenth_gym_ros-sim-1).
-Then press the oren folders menu and start typing "/sim_ws/" and press enter.
-Open Terminal Inside the Container
-Once attached, VS Code will switch into the container environment.
-Open a terminal via Ctrl+ or from the menu:
-Terminal > New Terminal.
-The terminal will now be running inside the container – no need for docker exec.
-Access the VNC GUI
-To access the GUI from the browser:
-
-Open your web browser.
-Go to:
-http://localhost:8080/vnc.html
-You should see the noVNC logo.
-Click the Connect button to open the graphical session.
+> If the ros2 launch command succeeds and no errors appear, the simulation is running.  
+> Ha a ros2 launch parancs sikeresen fut és nincs hiba, a szimuláció fut.
 
 # Launching the Simulation
 
