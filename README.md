@@ -46,6 +46,23 @@ $ source /opt/ros/foxy/setup.bash
 $ source install/local_setup.bash
 $ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
 ```
+
+## Quick Start (Necessary Steps to Use the Simulator)
+
+1. Open a terminal and navigate to the project folder:
+   ```bash
+   cd /path/to/Simulator-main
+   ```
+2. Start the containers:
+   ```bash
+   docker compose up
+   ```
+3. Open Visual Studio Code and attach to the running simulation container (use "Dev Containers: Attach to Running Container...").
+4. In the attached VS Code window, open a terminal and run:
+   ```bash
+   $ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
+   ```
+
 A rviz window should pop up showing the simulation either on your host system or in the browser window depending on the display forwarding you chose.
 
 
