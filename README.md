@@ -31,7 +31,7 @@ The installed ros2 in the container is a foxy version but as soon as car1 and ca
 | 14. Source the workspace: source sim_ws/install/setup.bash | 14. Forrásold a workspace-et: source sim_ws/install/setup.bash |
 | 15. Launch simulation: ros2 launch f1tenth_gym_ros bringup_launch.py | 15. Indítsd a szimulációt: ros2 launch f1tenth_gym_ros bringup_launch.py |
 | 16. Open/refresh http://localhost:8080/vnc.html — you should now see the track and cars. | 16. Frissítsd / nyisd meg újra a http://localhost:8080/vnc.html oldalt — látnod kell a pályát és az autókat. |
-| 17. (Optional) Use RViz inside the container if needed. | 17. (Opcionális) Használd az RViz-et a konténerben ha szükséges. |
+| 17. (Optional) Use RViz inside the container if needed ros2 run rvitz2 rviz2. | 17. (Opcionális) Használd az RViz-et a konténerben ha szükséges ros2 run rviz2 rviz2. |
 | 18. To stop: press Ctrl+C in the terminal, then docker compose down (in host shell). | 18. Leállítás: terminálban Ctrl+C, majd hoston docker compose down. |
 
 > If the ros2 launch command succeeds and no errors appear, the simulation is running.  
