@@ -63,6 +63,6 @@ $ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
    $ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
    ```
 
-A rviz window should pop up showing the simulation either on your host system or in the browser window depending on the display forwarding you chose.
+A rviz window should pop up showing the simulation either on your host system (http://localhost:8080/vnc.html ) or in the browser window depending on the display forwarding you chose.
 
 
